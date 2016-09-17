@@ -1,0 +1,38 @@
+.container {
+	height: 100vh;
+	width: 80%;
+	margin: 30px,100px, 30px, 30px;
+	border: 1px solid #1E1BF7;
+	background-color: #C5C5F7;
+	display: inline-block;
+}
+
+.block {
+	height: 25%;
+	width: 25%;
+	/*display: inline-block;*/
+	background-color: #F3F4C3;
+	border: none;
+	padding: none;
+	top: -1px;
+	position: relative;
+	float: left;
+}
+
+.highlight {
+	background-color: #5FBA7D;
+}
+
+.tools {
+	height: 100vh;
+	width: 15%;
+	display: inline-block;
+	position: absolute;
+	text-align: center;
+	top: 50px;
+
+}
+
+.instructions {
+	border: 1px solid blue;
+}
