@@ -19,31 +19,63 @@ $(document).ready(function() {
 		}
 	}
 
-	makeGrid();
-
+	
 	function black() {
-
 		$('.block').on('mouseenter', function() {
-			$(this).addClass('highlight')
-		});
-
-		$('.block').on('click', function() {
-			$(this).toggleClass('highlight')
+			$(this).addClass('highlight');
 		});
 	}
 
-	black()
+	makeGrid();
+	black();
 
-	$('button').on('click',function() {
-		$('html').find('.block').removeClass('highlight');
+	$('.reset').on('click', function() {
 
 		var usersize = prompt("How many squares would you like per side of the next grid?", "Up to 64!");
-		blocksPerSide = usersize;
-		totalBlocks = usersize ** 2;
-		$('.block').remove();
-		makeGrid();
-		black();
+		
+		if (usersize <= 64) {
+			blocksPerSide = usersize;
+			totalBlocks = usersize ** 2;
+			$('.block').remove();
+			makeGrid();
+			black();
+		}
+
+		else {
+			usersize;
+		}
 
 	})
 
+
+	function randomColor() {
+		var color = 'rgb(' 
+		+ Math.floor((Math.random() * 256)) + ', '
+		+ Math.floor((Math.random() * 256)) + ', '
+		+ Math.floor((Math.random() * 256)) + ')';
+		return color; 
+	}
+
+	$('.technicolor').on('click', function() {
+		$('.block').off();
+		$('.block').removeClass('highlight');
+		$('.block').css('background-color', '#F3F4C3')
+		$('.block').css('opacity', 1)
+		$('.block').on('mouseenter', function() {
+			$(this).css('background-color', randomColor())
+		})
+	})
+
+	$('.shady').on('click', function() {
+		$('.block').off();
+		$('.block').removeClass('highlight');
+		$('.block').css('background-color', '#F3F4C3')
+		$('.block').on('mouseenter', function() {
+			var opacityChange = 0.1;
+			$(this).css('opacity', $(this).css('opacity') - opacityChange);
+		})
+	})
+
 });
+
+
